@@ -6,7 +6,7 @@ run-name: ${{ github.actor }} has triggered the pipeline
 on:
   push:
     branches:
-      - 'main'
+      - "master"
 
 # permission can be added at job level or workflow level
 permissions:
