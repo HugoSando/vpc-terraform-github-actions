@@ -46,8 +46,20 @@ jobs:
         id: plan
         run: terraform plan
         working-directory: ./Terraform-VPC
+        env:
+          TF_VAR_vpc_cidr: ${{ vars.VPC_CIDR }}
+          TF_VAR_subnet_cidr: ${{ vars.SUBNET_CIDR }}
+          TF_VAR_subnet_names: ${{ vars.SUBNET_NAMES }}
+          TF_VAR_ami_id: ${{ vars.AMI_ID }}
+          TF_VAR_instance_type: ${{ vars.INSTANCE_TYPE }}
 
       - name: Terraform Apply
         id: apply
         run: terraform apply -auto-approved
         working-directory: ./Terraform-VPC
+        env:
+          TF_VAR_vpc_cidr: ${{ vars.VPC_CIDR }}
+          TF_VAR_subnet_cidr: ${{ vars.SUBNET_CIDR }}
+          TF_VAR_subnet_names: ${{ vars.SUBNET_NAMES }}
+          TF_VAR_ami_id: ${{ vars.AMI_ID }}
+          TF_VAR_instance_type: ${{ vars.INSTANCE_TYPE }}
