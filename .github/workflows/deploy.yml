@@ -23,8 +23,8 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::318142138553:role/github.oidc.test
-          aws-region: us-east-1
+          role-to-assume: ${{ secrets.ARN_ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Print AWS environment variables
         run: env | grep AWS
